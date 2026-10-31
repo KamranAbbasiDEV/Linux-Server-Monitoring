@@ -1,0 +1,9 @@
+{
+  "disk_path": "/",
+  "services": ["nginx"],
+  "thresholds": {
+    "cpu_percent": {"warning": 80, "critical": 95},
+    "memory_percent": {"warning": 80, "critical": 92},
+    "disk_percent": {"warning": 80, "critical": 92}
+  }
+}
