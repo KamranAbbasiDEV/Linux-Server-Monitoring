@@ -1,0 +1,10 @@
+[Unit]
+Description=LinuxOps monitor — collect one unprivileged host snapshot
+Documentation=https://github.com/KamranAbbasiDEV/linux-server-monitoring
+
+[Service]
+Type=oneshot
+# User-level service; install package for this same user beforehand.
+ExecStart=/usr/bin/env python3 -m linuxops snapshot --history %h/.local/state/linuxops/history.jsonl
+NoNewPrivileges=true
+PrivateTmp=true
