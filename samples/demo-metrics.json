@@ -1,0 +1,15 @@
+{
+  "cpu_percent": 91.5,
+  "memory_percent": 84.3,
+  "disk_percent": 69.0,
+  "load_1m": 4.2,
+  "load_5m": 2.8,
+  "load_15m": 1.6,
+  "uptime_seconds": 439100,
+  "network_bytes_received": 92818419,
+  "network_bytes_sent": 19471820,
+  "services": [
+    {"name": "nginx", "state": "failed"},
+    {"name": "docker", "state": "active"}
+  ]
+}
