@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "collected_at_utc": "2026-10-31T16:06:35+00:00",
+  "source": "synthetic-demo",
+  "hostname": "demo-linux-host",
+  "overall_status": "critical",
+  "metrics": {
+    "cpu_percent": 91.5,
+    "memory_percent": 84.3,
+    "disk_percent": 69.0,
+    "load_1m": 4.2,
+    "load_5m": 2.8,
+    "load_15m": 1.6,
+    "uptime_seconds": 439100,
+    "network_bytes_received": 92818419,
+    "network_bytes_sent": 19471820,
+    "services": [
+      {
+        "name": "nginx",
+        "state": "failed"
+      },
+      {
+        "name": "docker",
+        "state": "active"
+      }
+    ]
+  },
+  "alerts": [
+    {
+      "metric": "cpu_percent",
+      "severity": "warning",
+      "value": 91.5,
+      "threshold": 80,
+      "message": "cpu_percent at 91.5% (>= 80% warning threshold)"
+    },
+    {
+      "metric": "memory_percent",
+      "severity": "warning",
+      "value": 84.3,
+      "threshold": 80,
+      "message": "memory_percent at 84.3% (>= 80% warning threshold)"
+    },
+    {
+      "metric": "service",
+      "severity": "critical",
+      "service": "nginx",
+      "value": "failed",
+      "message": "Service nginx state: failed"
+    }
+  ]
+}
