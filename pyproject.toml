@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-server-monitoring"
+version = "1.0.0"
+description = "Dependency-free Linux server monitoring, threshold alerts, and incident reports"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Kamran Mustafa Abbasi"}]
+keywords = ["linux", "cloud-support", "observability", "systemd", "python", "monitoring"]
+classifiers = ["Programming Language :: Python :: 3", "Environment :: Console", "Operating System :: POSIX :: Linux", "Topic :: System :: Monitoring"]
+
+[project.scripts]
+linuxops = "linuxops.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["linuxops*"]
+
+[tool.setuptools.package-data]
+linuxops = ["demo-metrics.json"]
