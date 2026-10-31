@@ -1,0 +1,29 @@
+name: Python and Bash CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run Python unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Check Bash syntax
+        run: bash -n scripts/quick-health.sh
+      - name: Demonstrate synthetic monitoring and reporting
+        run: |
+          python -m linuxops demo --history /tmp/linuxops-history.jsonl --output /tmp/linuxops-latest.json
+          python -m linuxops report /tmp/linuxops-history.jsonl --output /tmp/linuxops-incident.md
+          test -s /tmp/linuxops-incident.md
